@@ -1,6 +1,6 @@
-import express from 'express'
-import cors from 'cors'
-import helmet from 'helmet'
+import * as express from 'express'
+import * as cors from 'cors'
+import * as helmet from 'helmet'
 import * as http from 'http';
 
 let server: http.Server
@@ -19,7 +19,9 @@ async function start() {
 }
 
 async function close() {
-  server.close()
+  if (server) {
+    server.close()
+  }
 }
 
 export { start, close }
